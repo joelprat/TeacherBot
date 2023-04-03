@@ -1,4 +1,4 @@
-# Scheme
+# Esquema
 
 ![image](https://user-images.githubusercontent.com/104699446/229575547-419809e9-b9b8-40d9-bddc-ee4d55ed3363.png)
 
