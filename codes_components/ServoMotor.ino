@@ -7,15 +7,14 @@ Servo myservo;
 void setup() {
   // Establecer el pin del servo
   myservo.attach(9);
+  myservo.write(0);
+  delay(5000);
 }
 
 void loop() {
-  // Mover el servo a 0 grados
-  myservo.write(0);
-  delay(1000);
-
+  
   // Mover el servo a 90 grados
-  myservo.write(90);
+  myservo.write(0);
   delay(1000);
 
   // Mover el servo a 180 grados
