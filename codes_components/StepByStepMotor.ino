@@ -1,27 +1,34 @@
-// Incluir la librería de la biblioteca Stepper
-#include <Stepper.h>
-
-// Definir el número de pasos por revolución
-const int stepsPerRevolution = 200;
-
-// Definir la secuencia de pasos
-// Puedes modificar esta secuencia para cambiar la dirección del motor
-int sequence[] = {0, 1, 2, 3};
-
-// Inicializar el objeto Stepper
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+// Configuración de pines
+const int stepPin = 6;     // Pin STEP conectado al pin 9 del Arduino
+const int dirPin = 7;      // Pin DIR conectado al pin 3 del Arduino
 
 void setup() {
-  // Establecer la velocidad del motor en pasos por segundo
-  myStepper.setSpeed(50);
+  // Configurar los pines como salidas
+  pinMode(stepPin, OUTPUT);
+  pinMode(dirPin, OUTPUT);
 }
 
 void loop() {
-  // Hacer girar el motor en una dirección
-  myStepper.step(100);
-  delay(500);
+  digitalWrite(dirPin, HIGH);  // Establecer la dirección del giro (HIGH o LOW)
 
-  // Hacer girar el motor en la dirección opuesta
-  myStepper.step(-100);
-  delay(500);
+  // Generar 2000 pulsos para hacer que el motor gire
+  for (int i = 0; i < 2000; i++) {
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(500);    // Retardo para la duración del pulso
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(500);    // Retardo entre pulsos
+  }
+
+  delay(1000);  // Retardo de 1 segundo antes de invertir la dirección
+  digitalWrite(dirPin, LOW);  // Invertir la dirección del giro
+
+  // Generar 2000 pulsos para hacer que el motor gire en la dirección opuesta
+  for (int i = 0; i < 2000; i++) {
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(500);    // Retardo para la duración del pulso
+    digitalWrite(stepPin, LOW);
+    delayMicroseconds(500);    // Retardo entre pulsos
+  }
+
+  delay(1000);  // Retardo de 1 segundo antes de repetir el ciclo
 }
