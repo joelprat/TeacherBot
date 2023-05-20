@@ -1,6 +1,16 @@
 import pytesseract
 import requests
+import os
+from translate import Translator
+from gtts import gTTS
 from PIL import Image
+from faker import Faker
+import speech_recognition as sr
+from pydub import AudioSegment
+#Test TextToSpeach
+from pygame import mixer
+import time
+
 URL = 'https://languagetool.org/api/v2/check'
 HEADERS = {'Content-Type': 'application/x-www-form-URLencoded'}
 pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
@@ -78,15 +88,73 @@ def APIcorrection(text:str, palabras):
     
     return palabras_final, corrected_words
 
+def convertir_texto_a_audio(texto):
+    # Crea un objeto gTTS con el texto proporcionado
+    tts = gTTS(text=texto, lang='es')
+
+    # Guarda el audio en un archivo temporal
+    archivo_audio = 'temp_audio.mp3'
+    tts.save(archivo_audio)
+
+    # Reproduce el audio utilizando el reproductor predeterminado del sistema
+    reproducir_audio(archivo_audio)
+
+    # Elimina el archivo temporal de audio
+    #os.remove(archivo_audio)
+
+def reproducir_audio(archivo_audio):
+    # Verifica el sistema operativo para determinar el reproductor de audio adecuado
+    mixer.init()
+    mixer.music.load(archivo_audio)
+    mixer.music.play()
+    time.sleep(10)
+
+def traducir(frase, idioma_origen, idioma_destino):
+    translator = Translator(from_lang=idioma_origen, to_lang=idioma_destino)
+    traduccion = translator.translate(frase)
+    return traduccion
+
+def transcribir_audio(ruta_archivo):
+    r = sr.Recognizer()
+    with sr.AudioFile(ruta_archivo) as fuente_audio:
+        audio = r.record(fuente_audio)
+    try:
+        texto_transcrito = r.recognize_google(audio, language="es-ES")  # Establece el idioma del audio
+        return texto_transcrito
+    except sr.UnknownValueError:
+        print("No se pudo transcribir el audio")
+    except sr.RequestError as e:
+        print("Error en la solicitud al servicio de reconocimiento de voz: ", str(e))
+
+
 
 def main():
-    text, data = loadImage("test1.jpeg")
+    """Generamos una frase o palabra rng"""
+    idioma_origen = "en"
+    idioma_destino = "ca"
+    faker = Faker('en')  # Establece el idioma a catalán
+    num_palabras = faker.random_int(min=10, max=15)  # Genera un número aleatorio de palabras entre 10 y 15
+    #frase = faker.sentence(nb_words=num_palabras)   
+    frase = faker.word()
+    traduccion = traducir(frase, idioma_origen, idioma_destino)
+
+
+    """Convertimos a audio la frase"""
+    convertir_texto_a_audio(traduccion)
+    #ruta_audio = "temp_audio.mp3"
+    #ruta_audio_wav = "temp_audio.wav"
+    #audio = AudioSegment.from_mp3(ruta_audio)
+    # audio.export(ruta_audio_wav, format="wav")
+    #texto_transcrito = transcribir_audio(ruta_audio_wav)
+    #print(texto_transcrito)
+
+    """OCR i Correction"""
+    text, data = loadImage("test1.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
     print(text)
     print(palabras_final)
     print(corrected_words)
-
 # Verificación de si el archivo es el archivo principal
 if __name__ == "__main__":
     # Llamado a la función principal
