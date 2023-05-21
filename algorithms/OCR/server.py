@@ -1,7 +1,7 @@
 import socket
 
 # Configuración del servidor
-HOST = '127.0.0.1'  # Dirección IP del servidor
+HOST = '192.168.0.16'  # Dirección IP del servidor
 PORT = 1234  # Puerto del servidor
 
 # Crear un socket para el servidor
@@ -20,6 +20,9 @@ while True:
     print(f"Conexión establecida desde {addr}")
 
     while True:
+        # Enviar una respuesta al cliente
+        response = "FOTO\n"
+        client_socket.send(response.encode())
         # Recibir datos del cliente
         data = client_socket.recv(1024).decode()
         if not data:
@@ -27,9 +30,7 @@ while True:
         
         print(f"Datos recibidos desde el cliente: {data}")
 
-        # Enviar una respuesta al cliente
-        response = "Respuesta desde el servidor"
-        client_socket.send(response.encode())
+        
 
     # Cerrar la conexión con el cliente
     client_socket.close()
