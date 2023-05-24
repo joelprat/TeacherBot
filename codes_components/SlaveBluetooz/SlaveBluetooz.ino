@@ -6,9 +6,9 @@ void setup() {
   Serial.begin(9600);
   Serial.println("ENTER AT Commands:");
   BTSerial.begin(9600);
-  sendATCommand("AT+NAME=RobotTecher1");
-  delay(500);
-  sendATCommand("AT+BAUD4");
+  //sendATCommand("AT+NAME=RobotTecher1");
+  //delay(500);
+  //sendATCommand("AT+BAUD4");
   
 }
 
