@@ -128,7 +128,7 @@ def transcribir_audio(ruta_archivo):
 
 
 
-def main():
+def text_recognition():
     """Generamos una frase o palabra rng"""
     idioma_origen = "en"
     idioma_destino = "ca"
@@ -152,10 +152,17 @@ def main():
     text, data = loadImage("test1.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
+    print("text\n")
     print(text)
+    print("palabras final\n")
     print(palabras_final)
+    print("corrected words\n")
     print(corrected_words)
 # Verificación de si el archivo es el archivo principal
-if __name__ == "__main__":
+#if __name__ == "__text_recognition__":
     # Llamado a la función principal
-    main()
+
+    return palabras_final
+
+
+#text_recognition()
