@@ -127,7 +127,7 @@ def transcribir_audio(ruta_archivo):
         print("Error en la solicitud al servicio de reconocimiento de voz: ", str(e))
 
 
-
+#main
 def text_recognition():
     """Generamos una frase o palabra rng"""
     idioma_origen = "en"

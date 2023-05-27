@@ -1,4 +1,6 @@
 import text_recognition
+import transform_image_to_position
+
 from sympy.physics.mechanics import dynamicsymbols
 from sympy import *
 import numpy as np
@@ -16,10 +18,10 @@ def calculation_move_for_word(palabras):
     movs = {}
     for palabra in palabras:
         coord = palabras[palabra]
-        x = coord[0] * LA
-        y = coord[1] * LA
-        w = coord[2] * LA
-        h = coord[3] * LA
+        x = coord[0] 
+        y = coord[1] 
+        w = coord[2]
+        h = coord[3]
 
         y = y - h/2
         movs[palabra] = [x, y, w/4]
@@ -32,7 +34,10 @@ def set_equations(movs):
     for mov in movs:
         angulo = []
         for i in range(4):
-            angulo.append(move_arms(movs[mov][0], movs[mov][1]))
+            x_robot, y_robot = transform_image_to_position.transform_image_to_position(movs[mov][0], movs[mov][1])
+            print("xyrobot")
+            print(x_robot, y_robot)
+            angulo.append(move_arms(x_robot, y_robot))
             movs[mov][0] += movs[mov][2]
         angulos.append(angulo)
     
@@ -40,26 +45,26 @@ def set_equations(movs):
     return angulos
 
 
-
-def move_arms(x,y):
-    print(x,y)
+def move_arms(x, y):
+    x = 5
+    y = 5
     eq1 = (LA * cos(theta1) + LB * cos(theta1 + theta2)) - x
     eq2 = (LA * sin(theta1) + LB * sin(theta1 + theta2)) - y
     eq3 = 10 - LC - 0
 
-    try :
-        q = nsolve((eq1,eq2,eq3), ((theta1),(theta2)), (1,1), prec=5)
+    try:
+        q = nsolve((eq1, eq2, eq3), (theta1, theta2), (10,10), prec=5)
     except Exception as e:
         print("Error:", str(e))
-        q=[0,0,0,0]
+        q = [0, 0, 0, 0]
 
-    q[0] = q[0] - round(q[0]/(np.pi * 2)) * 2 * np.pi
-    q[1] = q[1] - round(q[1]/(np.pi * 2)) * 2 * np.pi
-    q[2] = q[2] - round(q[2]/(np.pi * 2)) * 2 * np.pi
+    q[0] = q[0] - round(q[0] / (np.pi * 2)) * 2 * np.pi
+    q[1] = q[1] - round(q[1] / (np.pi * 2)) * 2 * np.pi
 
     return q
 
 
+#main
 def robot_movement():
     #palabras = text_recognition.text_recognition()
     #movs = calculation_move_for_word(palabras)
@@ -71,3 +76,4 @@ def robot_movement():
 
 robot_movement()
     
+# 2250x4000
