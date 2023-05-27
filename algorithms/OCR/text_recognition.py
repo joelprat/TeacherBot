@@ -29,6 +29,8 @@ def loadImage(imageURL:str):
     text = pytesseract.image_to_string(img)
     return text, data
 
+
+
 def replaceCaracter(data:str):
     palabras = {}
     for i in range(len(data['text'])):
@@ -40,9 +42,7 @@ def replaceCaracter(data:str):
         y = data['top'][i]
         w = data['width'][i]
         h = data['height'][i]
-        
-        w = x + w
-        h = y + h
+
         
         # Agregar la palabra y sus datos de posición al diccionario
         palabras[word] = [x, y, w, h]
