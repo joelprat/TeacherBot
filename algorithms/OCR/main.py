@@ -10,7 +10,8 @@ from pydub import AudioSegment
 #Test TextToSpeach
 from pygame import mixer
 import time
-
+import socket
+import errno
 URL = 'https://languagetool.org/api/v2/check'
 HEADERS = {'Content-Type': 'application/x-www-form-URLencoded'}
 pytesseract.pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
@@ -49,6 +50,32 @@ def replaceCaracter(data:str):
 
     return palabras
 
+def recibir_todo(sock):
+    datos = b""
+    buff_size = 4096
+
+    try:
+        #sock.setblocking(False)
+        sock.settimeout(5)
+        while True:
+            try:
+                datos_temp = sock.recv(buff_size)
+                if not datos_temp:
+                    break
+                datos += datos_temp
+                print(len(datos))
+                datos_temp = None
+            except socket.timeout:
+                # Si se produce un timeout, no se cierra el socket, pero se sale del bucle
+                break
+            except socket.error as e:
+                print("Error al recibir datos: ", str(e))
+                break
+
+    except socket.error as e:
+        print("Error al recibir datos: ", str(e))
+
+    return datos
 
 def APIcorrection(text:str, palabras):
     # Detección de errores para las palabras
@@ -149,10 +176,10 @@ def main():
     #print(texto_transcrito)
 
     """OCR i Correction"""
-    text, data = loadImage("test1.jpeg")       
+    text, data = loadImage("imagen.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
-    print(text)
+    print(data)
     print(palabras_final)
     print(corrected_words)
 # Verificación de si el archivo es el archivo principal

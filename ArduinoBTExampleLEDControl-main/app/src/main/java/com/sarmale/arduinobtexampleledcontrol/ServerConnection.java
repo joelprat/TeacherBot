@@ -165,7 +165,7 @@ public class ServerConnection extends AppCompatActivity {
                 // Establecer la dirección IP y el puerto del servidor
                 String serverIP = "192.168.0.16"; // Ejemplo de dirección IP
                 int serverPort = 1234; // Ejemplo de puerto
-
+                connectedThread = MyApplication.getApplication().getCurrentConnectedThread();
                 // Crear el socket y establecer la conexión con el servidor
                 socket = new Socket(serverIP, serverPort);
                 outputStream = socket.getOutputStream();
@@ -176,8 +176,10 @@ public class ServerConnection extends AppCompatActivity {
                 // Leer la respuesta del servidor
                 String response = "";
 
-                writer.write(command);
-                writer.flush();
+                //writer.write(command);
+                //writer.flush();
+                outputStream.write(command.getBytes());
+                outputStream.flush();
                 while (!response.equalsIgnoreCase("FOTO") && !response.contains("START") && !response.contains("DICTA")) {
                     response = input.readLine();
                     Log.d("TAG", "Respuesta recibida del servidor: " + response);
@@ -207,7 +209,7 @@ public class ServerConnection extends AppCompatActivity {
                     response = "";
 
                 }
-                //socket.close();
+                socket.close();
 
             } catch (IOException e) {
                 e.printStackTrace();

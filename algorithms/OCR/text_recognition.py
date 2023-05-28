@@ -149,11 +149,12 @@ def text_recognition():
     #print(texto_transcrito)
 
     """OCR i Correction"""
-    text, data = loadImage("test1.jpeg")       
+    text, data = loadImage("imagen.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
     print("text\n")
     print(text)
+    print(data)
     print("palabras final\n")
     print(palabras_final)
     print("corrected words\n")
