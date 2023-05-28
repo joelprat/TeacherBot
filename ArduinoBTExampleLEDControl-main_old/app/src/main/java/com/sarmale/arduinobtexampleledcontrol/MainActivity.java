@@ -1,7 +1,5 @@
 package com.sarmale.arduinobtexampleledcontrol;
 
-
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -33,8 +31,6 @@ public class MainActivity extends AppCompatActivity {
     // Global variables we will use in the
     private static final String TAG = "FrugalLogs";
     private static final int REQUEST_ENABLE_BT = 1;
-    private static final int REQUEST_CAMERA_PERMISSION = 200;
-    private static final int REQUEST_RECORD_AUDIO_PERMISSION =1;
     //We will use a Handler to get the BT Connection statys
     public static Handler handler;
     private final static int ERROR_READ = 0; // used in bluetooth handler to identify message update
@@ -46,22 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (this.checkSelfPermission(Manifest.permission.BLUETOOTH) != PackageManager.PERMISSION_GRANTED ||
-                this.checkSelfPermission(Manifest.permission.BLUETOOTH_ADMIN) != PackageManager.PERMISSION_GRANTED) {
-            // Si no se tienen los permisos, los solicita al usuario
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN},
-                    1);
-        }
-
-        if (this.checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
-                this.checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-            // Si no se tienen los permisos, los solicita al usuario
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA},
-                    2);
-        }
 
         BluetoothManager bluetoothManager = getSystemService(BluetoothManager.class);
         BluetoothAdapter bluetoothAdapter = bluetoothManager.getAdapter();
@@ -222,20 +202,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                //Toast.makeText(MainActivity.this, "Sorry!!!, you can't use this app without granting camera permission", Toast.LENGTH_LONG).show();
-                //finish();
-            }
-        } else if (requestCode == REQUEST_RECORD_AUDIO_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
-                //Toast.makeText(MainActivity.this, "Sorry!!!, you can't use this app without granting microphone permission", Toast.LENGTH_LONG).show();
-                //finish();
-            }
-        }
     }
 }

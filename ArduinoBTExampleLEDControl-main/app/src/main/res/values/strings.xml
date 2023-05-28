@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ArduinoBTExampleLEDControl</string>
+    <string name="COMMAND_LABEL">Comanda</string>
+    <string name="CONNECT_LABEL">Conectar</string>
 </resources>

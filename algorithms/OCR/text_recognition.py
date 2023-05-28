@@ -29,6 +29,8 @@ def loadImage(imageURL:str):
     text = pytesseract.image_to_string(img)
     return text, data
 
+
+
 def replaceCaracter(data:str):
     palabras = {}
     for i in range(len(data['text'])):
@@ -36,13 +38,11 @@ def replaceCaracter(data:str):
         word = data['text'][i].replace(" ", "")  # eliminar los espacios en blanco  
         word = word.replace(",", "")
         word = word.replace(".", "")
-        x = data['left'][i]
-        y = data['top'][i]
+        x = data['top'][i]
+        y = data['left'][i]
         w = data['width'][i]
         h = data['height'][i]
-        print(data)
-        w = x + w
-        h = y + h
+
         
         # Agregar la palabra y sus datos de posición al diccionario
         palabras[word] = [x, y, w, h]
@@ -127,20 +127,20 @@ def transcribir_audio(ruta_archivo):
         print("Error en la solicitud al servicio de reconocimiento de voz: ", str(e))
 
 
-
-def main():
+#main
+def text_recognition():
     """Generamos una frase o palabra rng"""
-    idioma_origen = "en"
-    idioma_destino = "ca"
-    faker = Faker('en')  # Establece el idioma a catalán
-    num_palabras = faker.random_int(min=10, max=15)  # Genera un número aleatorio de palabras entre 10 y 15
-    #frase = faker.sentence(nb_words=num_palabras)   
-    frase = faker.word()
-    traduccion = traducir(frase, idioma_origen, idioma_destino)
+    #idioma_origen = "en"
+    #idioma_destino = "ca"
+    #faker = Faker('en')  # Establece el idioma a catalán
+    #num_palabras = faker.random_int(min=10, max=15)  # Genera un número aleatorio de palabras entre 10 y 15
+    ##frase = faker.sentence(nb_words=num_palabras)   
+    #frase = faker.word()
+    #traduccion = traducir(frase, idioma_origen, idioma_destino)
 
 
     """Convertimos a audio la frase"""
-    convertir_texto_a_audio(traduccion)
+    #convertir_texto_a_audio(traduccion)
     #ruta_audio = "temp_audio.mp3"
     #ruta_audio_wav = "temp_audio.wav"
     #audio = AudioSegment.from_mp3(ruta_audio)
@@ -152,10 +152,17 @@ def main():
     text, data = loadImage("test1.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
+    print("text\n")
     print(text)
+    print("palabras final\n")
     print(palabras_final)
+    print("corrected words\n")
     print(corrected_words)
 # Verificación de si el archivo es el archivo principal
-if __name__ == "__main__":
+#if __name__ == "__text_recognition__":
     # Llamado a la función principal
-    main()
+
+    return palabras_final
+
+
+#text_recognition()
