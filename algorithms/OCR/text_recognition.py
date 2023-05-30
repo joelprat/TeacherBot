@@ -5,11 +5,12 @@ from translate import Translator
 from gtts import gTTS
 from PIL import Image
 from faker import Faker
-import speech_recognition as sr
-from pydub import AudioSegment
+#import speech_recognition as sr
+#from pydub import AudioSegment
 #Test TextToSpeach
 from pygame import mixer
 import time
+import transform_image_to_position
 
 URL = 'https://languagetool.org/api/v2/check'
 HEADERS = {'Content-Type': 'application/x-www-form-URLencoded'}
@@ -33,6 +34,20 @@ def loadImage(imageURL:str):
 
 def replaceCaracter(data:str):
     palabras = {}
+    '''
+    for i, palabra in enumerate(data["text"]):
+        if palabra.strip():
+            x = data["left"][i]
+            y = data["top"][i]
+            w = data["width"][i]
+            h = data["height"][i]
+
+            x,y = transform_image_to_position.transform_image_to_position(x,y)
+
+            print(f"Texto: {palabra}, Posición: ({x}, {y}, {w}, {h})")
+            palabras[word] = [x, y, w, h]
+
+    '''
     for i in range(len(data['text'])):
         # Obtén la palabra y su posición en la imagen
         word = data['text'][i].replace(" ", "")  # eliminar los espacios en blanco  
@@ -149,18 +164,18 @@ def text_recognition():
     #print(texto_transcrito)
 
     """OCR i Correction"""
-    text, data = loadImage("test1.jpeg")       
+    text, data = loadImage("joanCaya.jpeg")       
     palabras = replaceCaracter(data)
     palabras_final, corrected_words = APIcorrection(text, palabras)
-    print("text\n")
-    print(text)
-    print("palabras final\n")
-    print(palabras_final)
-    print("corrected words\n")
-    print(corrected_words)
+    #print("text\n")
+    #print(text)
+    #print("palabras final\n")
+    #print(palabras_final)
+    #print("corrected words\n")
+    #print(corrected_words)
 # Verificación de si el archivo es el archivo principal
 #if __name__ == "__text_recognition__":
-    # Llamado a la función principal
+    # Llamado a la función principal    
 
     return palabras_final
 

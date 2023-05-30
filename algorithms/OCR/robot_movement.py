@@ -9,6 +9,8 @@ LA = 20
 LB = 20
 LC = 9.5
 
+STEPS = 4
+
 theta1, theta2 = dynamicsymbols('theta1 theta2')
 
 
@@ -24,7 +26,8 @@ def calculation_move_for_word(palabras):
         h = coord[3]
 
         y = y - h/2
-        movs[palabra] = [x, y, w/4]
+        movs[palabra] = [x, y, w/STEPS]
+        
     return movs
 
 
@@ -33,7 +36,7 @@ def set_equations(movs):
     angulos = []
     for mov in movs:
         angulo = []
-        for i in range(4):
+        for i in range(STEPS):
             #print("pixels XY")
             #print(movs[mov][0], movs[mov][1])
             x_robot, y_robot = transform_image_to_position.transform_image_to_position(movs[mov][0], movs[mov][1])
@@ -43,7 +46,8 @@ def set_equations(movs):
             #print(x_robot, y_robot)
             angulo.append(move_arms(x_robot, y_robot))
             movs[mov][0] += movs[mov][2]
-        print("------------- Cambio palabra ------------- \n")
+            print(x_robot)
+        print("------------- Cambio palabra ------------- \n")        
         angulos.append(angulo)
     
     #angulos = [//palabra1[angulos1,angulos2,angulos3,angulos4], //palabra2[angulos1,angulos2,angulos3,angulos4]...]
@@ -74,9 +78,10 @@ def move_arms(x, y):
 
 #main
 def robot_movement():
-    #palabras = text_recognition.text_recognition()
-    #movs = calculation_move_for_word(palabras)
-    movs = calculation_move_for_word({'CARLLES': [728, 1329, 79, 424], 'LLAMO': [727, 944, 87, 313], 'HOLLA': [724, 182, 114, 416]})
+    palabras = text_recognition.text_recognition()
+    print(palabras)
+    movs = calculation_move_for_word(palabras)
+    #movs = calculation_move_for_word({'CARLLES': [728, 1329, 79, 424], 'LLAMO': [727, 944, 87, 313], 'HOLLA': [724, 182, 114, 416]})
     angulos = set_equations(movs)
     print("--------------------------------\n")
     print(angulos)
