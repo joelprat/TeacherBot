@@ -22,10 +22,10 @@ This Catalan teaching robot is an excellent tool for anyone who wants to improve
 ![image](https://github.com/joelprat/TeacherBot/blob/main/Physical%20robot.jpeg)
 
 # Hardware Scheme
-![image](https://github.com/joelprat/TeacherBot/blob/main/Scheme%20HW.jpg)
+![image](https://github.com/joelprat/TeacherBot/blob/main/HardwareSchema.jpg)
 
 # Software Scheme
-![image](https://github.com/joelprat/TeacherBot/blob/main/Scheme%20SW.jpg)
+![image](https://github.com/joelprat/TeacherBot/blob/main/SoftwareSchema.jpg)
 
 # Requirements
 
@@ -96,7 +96,7 @@ Python
 
 # TEACHERBOT DEMO
 
-[![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU){:target="_blank"}
+[![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU)
 
 # Authors
 
