@@ -7,7 +7,7 @@
   * [Software Scheme](#software-scheme)
   * [Requirements](#requirements)
   * [How to use](#how-to-use)
-  * [TEACHERBOT DEMO](#teacherbot-demo)
+  * [TeacherBot DEMO](#teacherbot-demo)
   * [Authors](#authors)
 
 # What is this?
@@ -94,7 +94,7 @@ Python
     $ python server.py
     ```
 
-# TEACHERBOT DEMO
+# TeacherBot DEMO
 
 [![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU)
 
