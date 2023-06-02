@@ -50,7 +50,7 @@ Python
  - Android Camera API
 
 
-Arduino:
+[Arduino](https://support.arduino.cc/hc/en-us/articles/360019833020-Download-and-install-Arduino-IDE):
  - Accel Stepper version 1.64 (to be installed in arduino IDE)
  - Software Serial ((included in arduino IDE))
  - Servo.h (included in arduino IDE)
