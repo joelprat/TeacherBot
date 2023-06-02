@@ -6,7 +6,7 @@
   * [Software Scheme](#software-scheme)
   * [Requirements](#requirements)
   * [How to use](#how-to-use)
-  * [TEACHERBOT DEMO](#teacherbot-demo)
+  * [TEACHERBOT DEMO](#TEACHERBOT-DEMO)
 
 # What is this?
 
@@ -90,4 +90,5 @@ Arduino:
     ```
 
 #TEACHERBOT DEMO
-[VIDEO](https://youtu.be/jaYQ3ElwnmU)
+
+- [VIDEO](https://youtu.be/jaYQ3ElwnmU)
