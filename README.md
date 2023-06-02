@@ -96,7 +96,7 @@ Python
 
 # TEACHERBOT DEMO
 
-[![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU)
+[![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU){:target="_blank"}
 
 # Authors
 
