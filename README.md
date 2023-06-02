@@ -10,7 +10,9 @@
 # What is this?
 
 This project consists of the design and construction of a robot capable of helping you improve your Catalan skills. It is able to understand and highlight syntax errors with great accuracy. 
+
 It utilizes a variety of electronic components, including an Arduino board, stepper motors, motor controllers, a Bluetooth module, and a servo motor. Additionally, it utilizes the microphone and speaker of a mobile device to generate a human-robot interaction for a more dynamic experience. The physical implementation of the robot includes a metal structure and a robotic arm. In summary, it is a project aimed at promoting the Catalan language. 
+
 This Catalan teaching robot is an excellent tool for anyone who wants to improve their Catalan skills, whether they are learning the language for academic or professional purposes, or simply for fun. It is easy to use and very effective, which means you will be able to significantly improve your Catalan level in no time.
 
 # Hardware Scheme
@@ -36,6 +38,7 @@ Python
  - [pillow](https://pypi.org/project/Pillow/)
  - [faker](https://pypi.org/project/Faker/0.7.4/)
 
+
 [Android Studio JDK](https://developer.android.com/studio):
  - SDK min 24 target 33
  - Java version 1.8
@@ -44,11 +47,13 @@ Python
  - Android Text To Speach
  - Android Camera API
 
+
 Arduino:
  - Accel Stepper version 1.64 (to be installed in arduino IDE)
  - Software Serial ((included in arduino IDE))
  - Servo.h (included in arduino IDE)
  - String.h (included in arduino IDE)
+
 
 # How to use
 
