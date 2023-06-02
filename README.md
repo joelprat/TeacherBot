@@ -2,6 +2,7 @@
 
 # Table of Contents
   * [What is this?](#what-is-this)
+  * [Physical Robot](#physical-robot)
   * [Hardware Scheme](#hardware-scheme)
   * [Software Scheme](#software-scheme)
   * [Requirements](#requirements)
@@ -16,6 +17,9 @@ This project consists of the design and construction of a robot capable of helpi
 It utilizes a variety of electronic components, including an Arduino board, stepper motors, motor controllers, a Bluetooth module, and a servo motor. Additionally, it utilizes the microphone and speaker of a mobile device to generate a human-robot interaction for a more dynamic experience. The physical implementation of the robot includes a metal structure and a robotic arm. In summary, it is a project aimed at promoting the Catalan language. 
 
 This Catalan teaching robot is an excellent tool for anyone who wants to improve their Catalan skills, whether they are learning the language for academic or professional purposes, or simply for fun. It is easy to use and very effective, which means you will be able to significantly improve your Catalan level in no time.
+
+# Physical Robot
+![image](https://github.com/joelprat/TeacherBot/blob/main/Physical%20robot.jpeg)
 
 # Hardware Scheme
 ![image](https://github.com/joelprat/TeacherBot/blob/main/Scheme%20HW.jpg)
