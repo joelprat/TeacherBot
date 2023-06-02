@@ -1,28 +1,84 @@
 # TeacherBot
 
-# Scheme
+# Table of Contents
+  * [What is this?](#what-is-this)
+  * [Hardware Scheme](#hardware-scheme)
+  * [Software Scheme](#software-scheme)
+  * [Requirements](#requirements)
+  * [How to use](#how-to-use)
 
-![image](https://user-images.githubusercontent.com/104699446/229575547-419809e9-b9b8-40d9-bddc-ee4d55ed3363.png)
+# What is this?
 
-# Descripción
-El diseño del circuito que hemos realizado está compuesto por los siguientes componentes: 
-- Una placa arduino UNO R3
-- Una placa de pruebas
-- Un microservomotor
-- Una pantalla LCD 16x2
-- Dos motores CC con codificador
-- Una controladora de motor (Pololu en el caso de tinkercad debido a la ausencia de nuestra específica controladora de motor). 
-- Una pila (Únicamente utilizado para dar funcionamiento en el tinkercad, en nuestro sistema proporcionaremos la potencia por USB).
+This project consists of the design and construction of a robot capable of helping you improve your Catalan skills. It is able to understand and highlight syntax errors with great accuracy. 
+It utilizes a variety of electronic components, including an Arduino board, stepper motors, motor controllers, a Bluetooth module, and a servo motor. Additionally, it utilizes the microphone and speaker of a mobile device to generate a human-robot interaction for a more dynamic experience. The physical implementation of the robot includes a metal structure and a robotic arm. In summary, it is a project aimed at promoting the Catalan language. 
+This Catalan teaching robot is an excellent tool for anyone who wants to improve their Catalan skills, whether they are learning the language for academic or professional purposes, or simply for fun. It is easy to use and very effective, which means you will be able to significantly improve your Catalan level in no time.
 
-Otros componentes que no se ven representados en el diseño del circuito ,debido a que no aparecen en la herramienta de tinkercad, són los siguientes: 
-- Un altavoz.
-- Un microfono.
-- Un dispositivo movil para la recaptación de la información a traves de fotografía.
-- Un controlador WiFi.
-- Un regulador de voltaje para el motor NEMA.
-- Una placa arduino NANO
-- Modulo bluetooth para hacer las conexiones.
+# Hardware Scheme
+![image](https://github.com/joelprat/TeacherBot/blob/main/Scheme%20HW.jpg)
 
-A pesar de no utilizar estos componentes en el diseño realizado, proporcionamos los módulos software para cada uno de los componentes, independientemente de si se encuentran en tinkercad o no, para hacerlos funcionar. 
+# Software Scheme
+![image](https://github.com/joelprat/TeacherBot/blob/main/Scheme%20SW.jpg)
 
-Además a la hora de implementar el robot en real, disponemos de una estructura con base metálica donde colocamos el soporte de papel. El brazo robótico que consta de una base de 9,5 cm de alto y dos brazos de 20 cm de largo cada uno. Al final ponemos un servomotor para controlar el movimiento de la pluma. Este robot nos permite un amplio espacio de trabajo del cual solo utilizaremos una parte correspondiente a una hoja DIN A4.
+# Requirements
+
+Python
+ - [Python 3.11.x](https://www.python.org/)
+ - [NumPy](https://numpy.org/)
+ - [Sympy](https://www.sympy.org/)
+ - [sympy.physics.mechanics](https://docs.sympy.org/latest/modules/physics/mechanics/index.html)
+ - [requests](https://pypi.org/project/requests/)
+ - [easyOCR](https://pypi.org/project/easyocr/)
+ - [cv2](https://pypi.org/project/opencv-python/)
+ - [socket](https://docs.python.org/3/library/socket.html)
+ - [base64](https://docs.python.org/es/3/library/base64.html)
+ - [translate](https://pypi.org/project/translate/)
+ - [gTTs](https://pypi.org/project/gTTS/)
+ - [pillow](https://pypi.org/project/Pillow/)
+ - [faker](https://pypi.org/project/Faker/0.7.4/)
+
+[Android Studio JDK](https://developer.android.com/studio):
+ - SDK min 24 target 33
+ - Java version 1.8
+ - Java Bluetooth API
+ - Java Socket API
+ - Android Text To Speach
+ - Android Camera API
+
+Arduino:
+ - Accel Stepper version 1.64 (to be installed in arduino IDE)
+ - Software Serial ((included in arduino IDE))
+ - Servo.h (included in arduino IDE)
+ - String.h (included in arduino IDE)
+
+# How to use
+
+1. Install Python.
+
+2. Clone this repo.
+
+    ```
+    $ git clone https://github.com/joelprat/TeacherBot.git
+    ```
+    
+3. Install the required libraries.
+
+   If using Windows:
+   
+     ```
+     $ cd \TeacherBot\algorithms\OCR\
+     $ install_dependencies_windows.bat
+     ```
+     
+   If using bash:
+   
+    ```
+    $ cd /TeacherBot/algorithms/OCR/
+    $ chmod +x install_dependencies_bash.sh
+    $ ./install_dependencies_bash.sh
+    ```
+
+4.  Server execution.
+
+    ```
+    $ python server.py
+    ```
