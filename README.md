@@ -96,7 +96,7 @@ Python
 
 # TEACHERBOT DEMO
 
-- [![Youtube video] (https://github.com/joelprat/TeacherBot/blob/main/demo.png)] (https://youtu.be/jaYQ3ElwnmU?v=jaYQ3ElwnmU)
+[![Alt text](https://img.youtube.com/vi/jaYQ3ElwnmU/0.jpg)](https://www.youtube.com/watch?v=jaYQ3ElwnmU)
 
 # Authors
 
