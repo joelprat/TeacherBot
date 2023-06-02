@@ -12,11 +12,11 @@
 
 # What is this?
 
-This project consists of the design and construction of a robot capable of helping you improve your Catalan skills. It is able to understand and highlight syntax errors with great accuracy. 
+This project consists of the design and construction of a robot capable of helping you improve your Catalan skills. It is able to understand and highlight syntax errors. 
 
 It utilizes a variety of electronic components, including an Arduino board, stepper motors, motor controllers, a Bluetooth module, and a servo motor. Additionally, it utilizes the microphone and speaker of a mobile device to generate a human-robot interaction for a more dynamic experience. The physical implementation of the robot includes a metal structure and a robotic arm. 
 
-This Catalan teaching robot is an excellent tool for anyone who wants to improve their Catalan skills, whether they are learning the language for academic or professional purposes, or simply for fun. It is easy to use and very effective, which means you will be able to significantly improve your Catalan level in no time.
+This Catalan teaching robot is a great tool for anyone who wants to improve their Catalan skills, whether they are learning the language for academic or professional purposes, or simply for fun. It is easy to use and very effective, which means you will be able to significantly improve your Catalan level in no time.
 
 # Physical Robot
 ![image](https://github.com/joelprat/TeacherBot/blob/main/Physical%20robot.jpeg)
