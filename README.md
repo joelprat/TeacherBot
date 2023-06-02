@@ -21,6 +21,8 @@ This Catalan teaching robot is an excellent tool for anyone who wants to improve
 # Physical Robot
 ![image](https://github.com/joelprat/TeacherBot/blob/main/Physical%20robot.jpeg)
 
+![image](https://github.com/joelprat/TeacherBot/blob/main/ComponentsImg.jpg)
+
 # Hardware Scheme
 ![image](https://github.com/joelprat/TeacherBot/blob/main/HardwareSchema.jpg)
 
