@@ -7,6 +7,7 @@
   * [Requirements](#requirements)
   * [How to use](#how-to-use)
   * [TEACHERBOT DEMO](#teacherbot-demo)
+  * [Authors](#authors)
 
 # What is this?
 
@@ -92,3 +93,7 @@ Arduino:
 # TEACHERBOT DEMO
 
 - [VIDEO](https://youtu.be/jaYQ3ElwnmU)
+
+# Authors
+
+- [Contributors](https://github.com/joelprat/TeacherBot/graphs/contributors)
